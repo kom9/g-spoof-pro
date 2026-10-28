@@ -70,6 +70,13 @@ android {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
 
+    lint {
+        // App ini memang aplikasi mock location — lint default menganggap
+        // izin ACCESS_MOCK_LOCATION di manifest utama sebagai error di release.
+        disable += "MockLocation"
+        abortOnError = true
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
